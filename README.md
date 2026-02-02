@@ -7,6 +7,8 @@
 - **7*24 快讯**：获取第一手市场资讯。
 - **清晰展示**：显示发言人、正文，支持翻页查看。
 
+![示意图](https://raw.githubusercontent.com/Folgerjun/materials/refs/heads/master/blog/img/xueqiu-plugin.png)
+
 ## 安装与使用
 1. **下载插件**：获取 `xueqiu-reader.zip` 插件包。
 2. **安装**：在 IDEA 中选择 `Settings` -> `Plugins` -> `Install Plugin from Disk...`。
