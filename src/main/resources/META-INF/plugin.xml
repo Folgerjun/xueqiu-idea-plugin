@@ -1,0 +1,18 @@
+<idea-plugin>
+    <version>1.0</version>
+    <idea-version since-build="232"/>
+    <id>top.putop.plugin</id>
+    <name>Xueqiu Reader</name>
+    <vendor email="ffj0721@163.com" url="https://putop.top">DoubleFJ</vendor>
+
+    <description><![CDATA[
+    A simple IntelliJ IDEA plugin to read Xueqiu hot news, following timeline and 24/7 news.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="Xueqiu" secondary="true" icon="AllIcons.General.Web" anchor="right"
+                    factoryClass="top.putop.plugin.XueqiuToolWindowFactory"/>
+    </extensions>
+</idea-plugin>
