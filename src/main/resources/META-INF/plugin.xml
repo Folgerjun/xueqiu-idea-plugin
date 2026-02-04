@@ -6,14 +6,14 @@
     <vendor email="ffj0721@163.com" url="https://putop.top">DoubleFJ</vendor>
 
     <description><![CDATA[
-    A simple IntelliJ IDEA plugin to read Xueqiu hot news, following timeline and 24/7 news.
+    A simple IntelliJ IDEA plugin to read Xueqiu hot news, following timeline and 24/7 news.<br><br>
 
-    这是一个专为开发者设计的雪球网阅读插件，让您在编写代码的间隙，能够快速浏览股市动态。
+    这是一个专为开发者设计的雪球网阅读插件，让您在编写代码的间隙，能够快速浏览股市动态。<br><br>
 
-    热门内容：查看雪球最热门的帖子。
-    关注动态：实时同步您关注的用户动态。
-    7*24 快讯：获取第一手市场资讯。
-    清晰展示：显示发言人、正文，支持翻页查看。
+    <b>热门内容：</b>查看雪球最热门的帖子。<br>
+    <b>关注动态：</b>实时同步您关注的用户动态。<br>
+    <b>7*24 快讯：</b>获取第一手市场资讯。<br>
+    <b>清晰展示：</b>显示发言人、正文，支持翻页查看。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>
