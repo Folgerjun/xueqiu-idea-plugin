@@ -15,6 +15,9 @@ import java.awt.FlowLayout
 import java.awt.Insets
 import java.awt.event.MouseAdapter
 import java.awt.event.MouseEvent
+import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 import javax.swing.*
 
 class XueqiuToolWindowFactory : ToolWindowFactory {
@@ -161,14 +164,38 @@ class PostDetailDialog(private val author: String, private val content: String) 
 }
 
 class PostCellRenderer : DefaultListCellRenderer() {
+    private val timeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
     override fun getListCellRendererComponent(
         list: JList<*>?, value: Any?, index: Int, isSelected: Boolean, cellHasFocus: Boolean
     ): Component {
         val post = value as XueqiuPost
         val panel = JPanel(BorderLayout())
         panel.border = BorderFactory.createEmptyBorder(8, 10, 8, 10)
-        
-        val header = JLabel("<html><body style='width: 200px'><b>${post.author}</b></body></html>")
+
+        // 格式化时间
+        val formattedTime = try {
+            Instant.ofEpochMilli(post.time)
+                .atZone(ZoneId.systemDefault())
+                .format(timeFormatter)
+        } catch (_: Exception) {
+            post.time.toString() // 如果转换失败或者类型不对，回退到原始值
+        }
+
+        // 优化 Header 显示
+        val authorColor = if (isSelected) "white" else "black" // 选中时适配字体颜色
+        val timeColor = if (isSelected) "#E0E0E0" else "gray"
+
+        val headerHtml = """
+            <html>
+            <body>
+                <span style='color: $authorColor; font-size: 1.1em;'><b>${post.author}</b></span>
+                &nbsp;&nbsp;
+                <span style='color: $timeColor; font-size: 0.9em;'>$formattedTime</span>
+            </body>
+            </html>
+        """.trimIndent()
+
+        val header = JLabel(headerHtml)
         
         // 列表页展示截断内容
         val displayContent = if (post.content.length > 120) {
@@ -184,17 +211,20 @@ class PostCellRenderer : DefaultListCellRenderer() {
         content.wrapStyleWord = true
         content.isEditable = false
         content.font = UIManager.getFont("Label.font")
-        content.background = if (isSelected) UIManager.getColor("List.selectionBackground") else UIManager.getColor("List.background")
-        content.foreground = if (isSelected) UIManager.getColor("List.selectionForeground") else UIManager.getColor("List.foreground")
+
+        // 处理选中状态的背景色和前景色
+        if (isSelected) {
+            panel.background = UIManager.getColor("List.selectionBackground")
+            content.background = UIManager.getColor("List.selectionBackground")
+            content.foreground = UIManager.getColor("List.selectionForeground")
+        } else {
+            panel.background = UIManager.getColor("List.background")
+            content.background = UIManager.getColor("List.background")
+            content.foreground = UIManager.getColor("List.foreground")
+        }
         
         panel.add(header, BorderLayout.NORTH)
         panel.add(content, BorderLayout.CENTER)
-        
-        if (isSelected) {
-            panel.background = UIManager.getColor("List.selectionBackground")
-        } else {
-            panel.background = UIManager.getColor("List.background")
-        }
         
         return panel
     }

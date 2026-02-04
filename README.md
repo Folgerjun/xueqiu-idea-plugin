@@ -7,18 +7,24 @@
 - **7*24 快讯**：获取第一手市场资讯。
 - **清晰展示**：显示发言人、正文，支持翻页查看。
 
-![示意图](https://raw.githubusercontent.com/Folgerjun/materials/refs/heads/master/blog/img/xueqiu-plugin.png)
+![示意图](https://raw.githubusercontent.com/Folgerjun/materials/refs/heads/master/blog/img/xueqiu-plugin-1.1.png)
 
 ## 安装与使用
-1. **下载插件**：获取 `xueqiu-reader.zip` 插件包。
-2. **安装**：在 IDEA 中选择 `Settings` -> `Plugins` -> `Install Plugin from Disk...`。
-3. **配置 Cookie**：
+
+1. **安装**
+   - 离线安装
+     - 下载获取 `xueqiu-reader.zip` 插件包。 [下载](https://github.com/Folgerjun/xueqiu-idea-plugin/releases)
+     - 在 IDEA 中选择 `Settings` -> `Plugins` -> `Install Plugin from Disk...`。
+   - 在线安装
+     - 打开 IDEA，进入 `Settings` -> `Plugins`。
+     - 搜索 `Xueqiu Reader` 并点击安装。
+2. **配置 Cookie**：
    - 打开侧边栏的 `Xueqiu` 工具窗口。
    - 点击 `设置Cookie` 按钮。
    - 在浏览器中登录雪球网，按 F12 打开开发者工具，在 `Network` 选项卡中找到任意一个请求，复制其 `Cookie` 字段内容并粘贴到插件中。
-4. **浏览**：点击 `热门`、`关注` 或 `7*24` 即可开始阅读。
-5. **翻页**：使用底部的翻页按钮查看更多内容。
-6. **详情**：左键双击帖子可查看详情。
+3. **浏览**：点击 `热门`、`关注` 或 `7*24` 即可开始阅读。
+4. **翻页**：使用底部的翻页按钮查看更多内容。
+5. **详情**：左键双击帖子可查看详情。
 
 ## 注意事项
 - 由于雪球网的安全防护机制，插件目前主要通过 Cookie 进行认证。
